@@ -2,8 +2,8 @@ package com.mjc.school;
 
 import com.mjc.school.controller.Controller;
 import com.mjc.school.repository.impl.DataSourceImpl;
-import com.mjc.school.repository.datasource.AuthorDataSource;
-import com.mjc.school.repository.datasource.NewsDataSource;
+import com.mjc.school.repository.datasource.AuthorData;
+import com.mjc.school.repository.datasource.NewsData;
 import com.mjc.school.service.dto.NewsDTO;
 import com.mjc.school.service.NewsService;
 import com.mjc.school.service.impl.NewsServiceImpl;
@@ -16,8 +16,8 @@ public class Main {
         int operation = 0;
         Scanner scanner = new Scanner(System.in);
 
-        AuthorDataSource authorDataSource = new AuthorDataSource();
-        NewsDataSource newsDataSource = new NewsDataSource(authorDataSource);
+        AuthorData authorDataSource = new AuthorData();
+        NewsData newsDataSource = new NewsData(authorDataSource);
         DataSourceImpl dataSource = new DataSourceImpl(authorDataSource, newsDataSource);
 
         NewsService newsService = new NewsServiceImpl(dataSource, Validator.getInstance());

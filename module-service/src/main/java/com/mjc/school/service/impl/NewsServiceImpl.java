@@ -1,7 +1,7 @@
 package com.mjc.school.service.impl;
 
 import com.mjc.school.repository.DataSource;
-import com.mjc.school.repository.model.News;
+import com.mjc.school.repository.model.NewsModel;
 import com.mjc.school.service.NewsMapper;
 import com.mjc.school.service.NewsService;
 import com.mjc.school.service.dto.NewsDTO;
@@ -34,7 +34,7 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public NewsDTO getNewsById(Long id) {
-        News news = dataSource.readById(id);
+        NewsModel news = dataSource.readById(id);
 
         if (news == null) {
             throw new NullPointerException("News with id " + id + " not found");
@@ -49,7 +49,7 @@ public class NewsServiceImpl implements NewsService {
         try {
             validator.validate(news);
             return NewsMapper.INSTANCE.newsToNewsDTO(dataSource.createNews(
-                    new News(
+                    new NewsModel(
                     getId(dataSource),
                     news.getTitle(),
                     news.getContent(),
@@ -70,7 +70,7 @@ public class NewsServiceImpl implements NewsService {
         try {
             validator.validate(newsDto);
             return NewsMapper.INSTANCE.newsToNewsDTO(dataSource.updateNews(
-                    new News(
+                    new NewsModel(
                             id,
                             newsDto.getTitle(),
                             newsDto.getContent(),

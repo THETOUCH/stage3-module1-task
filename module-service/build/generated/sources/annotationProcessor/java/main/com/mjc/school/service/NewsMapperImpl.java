@@ -1,20 +1,19 @@
 package com.mjc.school.service;
 
-import com.mjc.school.repository.model.News;
+import com.mjc.school.repository.model.NewsModel;
 import com.mjc.school.service.dto.NewsDTO;
-
 import java.time.LocalDateTime;
 import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-11-13T02:18:24+0600",
+    date = "2024-11-13T03:16:21+0600",
     comments = "version: 1.5.2.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.2.jar, environment: Java 17.0.10 (Amazon.com Inc.)"
 )
 public class NewsMapperImpl implements NewsMapper {
 
     @Override
-    public NewsDTO newsToNewsDTO(News news) {
+    public NewsDTO newsToNewsDTO(NewsModel news) {
         if ( news == null ) {
             return null;
         }
@@ -32,7 +31,7 @@ public class NewsMapperImpl implements NewsMapper {
     }
 
     @Override
-    public News newsDTOToNews(NewsDTO newsDTO) {
+    public NewsModel newsDTOToNews(NewsDTO newsDTO) {
         if ( newsDTO == null ) {
             return null;
         }
@@ -51,8 +50,8 @@ public class NewsMapperImpl implements NewsMapper {
         authorId = newsDTO.getAuthorId();
         lastUpdateDate = newsDTO.getLastUpdateDate();
 
-        News news = new News( id, title, content, createDate, lastUpdateDate, authorId );
+        NewsModel newsModel = new NewsModel( id, title, content, createDate, lastUpdateDate, authorId );
 
-        return news;
+        return newsModel;
     }
 }

@@ -1,20 +1,20 @@
 package com.mjc.school.repository;
 
-import com.mjc.school.repository.model.Author;
-import com.mjc.school.repository.model.News;
+import com.mjc.school.repository.model.AuthorModel;
+import com.mjc.school.repository.model.NewsModel;
 
 import java.util.List;
 
 public interface DataSource {
-    List<Author> readAllAuthors();
+    List<AuthorModel> readAllAuthors();
 
-    List<News> readAllNews();
+    List<NewsModel> readAllNews();
 
-    News readById(Long id);
+    NewsModel readById(Long id);
 
-    News createNews(News news);
+    NewsModel createNews(NewsModel news);
 
-    News updateNews(News news);
+    NewsModel updateNews(NewsModel news);
 
     Boolean deleteNewsById(Long id);
 }

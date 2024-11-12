@@ -1,7 +1,7 @@
 package com.mjc.school.repository.datasource;
 
-import com.mjc.school.repository.model.Author;
-import com.mjc.school.repository.model.News;
+import com.mjc.school.repository.model.AuthorModel;
+import com.mjc.school.repository.model.NewsModel;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,14 +12,14 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewsDataSource {
+public class NewsData {
     private static final DateTimeFormatter ISO_FORMATTER = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
     private List<String> newsList;
     private List<String> contentList;
-    private List<News> news;
-    private AuthorDataSource authorDataSource;
+    private List<NewsModel> news;
+    private AuthorData authorDataSource;
 
-    public NewsDataSource(AuthorDataSource authorDataSource) {
+    public NewsData(AuthorData authorDataSource) {
         newsList = new ArrayList<String>();
         contentList = new ArrayList<String>();
         news = new ArrayList<>();
@@ -29,18 +29,18 @@ public class NewsDataSource {
         newsCreateList();
     }
     private Long getAuthorsId(int i) {
-        List<Author> authors = authorDataSource.getAuthors();
+        List<AuthorModel> authors = authorDataSource.getAuthors();
         if (i < 0 || i >= authors.size()) {
             throw new IllegalArgumentException("Index out of bounds");
         }
         return authors.get(authors.size() - 1 - i).getId();
     }
-    public List<News> getNews() {
+    public List<NewsModel> getNews() {
         return news;
     }
     private void newsCreateList() {
         for (int i = 0; i < newsList.size(); i++) {
-            news.add(new News(
+            news.add(new NewsModel(
                     (long) i,
                     newsList.get(i),
                     contentList.get(i),

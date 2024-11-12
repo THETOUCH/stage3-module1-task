@@ -1,6 +1,6 @@
 package com.mjc.school.repository.datasource;
 
-import com.mjc.school.repository.model.Author;
+import com.mjc.school.repository.model.AuthorModel;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,16 +9,16 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AuthorDataSource {
+public class AuthorData {
     private List<String> authorList;
-    private List<Author> authors;
-    public AuthorDataSource() {
+    private List<AuthorModel> authors;
+    public AuthorData() {
         authorList = new ArrayList<String>();
         authors = new ArrayList<>();
         loadAuthors();
         authorsCreateList();
     }
-    public List<Author> getAuthors() {
+    public List<AuthorModel> getAuthors() {
         return authors;
     }
     public List<String> getAuthorList() {
@@ -38,7 +38,7 @@ public class AuthorDataSource {
     private void authorsCreateList() {
         long count = 0;
         for (String author : authorList) {
-            authors.add(new Author(count++, author));
+            authors.add(new AuthorModel(count++, author));
         }
     }
 }

@@ -1,5 +1,5 @@
 import com.mjc.school.repository.DataSource;
-import com.mjc.school.repository.model.News;
+import com.mjc.school.repository.model.NewsModel;
 import com.mjc.school.service.dto.NewsDTO;
 import com.mjc.school.service.impl.NewsServiceImpl;
 import com.mjc.school.service.validators.Validator;
@@ -30,11 +30,11 @@ public class testService {
 
     @Test
     public void testGetAllNews() {
-        List<News> newsList = List.of(
-                new News(1L, "title1", "content1",
+        List<NewsModel> newsList = List.of(
+                new NewsModel(1L, "title1", "content1",
                         LocalDateTime.parse("2024-11-12T20:08:48.871142"),
                         LocalDateTime.parse("2024-11-12T20:08:48.871142"), 1L),
-                new News(2L, "title2", "content2",
+                new NewsModel(2L, "title2", "content2",
                         LocalDateTime.parse("2024-11-12T20:08:48.871142"),
                         LocalDateTime.parse("2024-11-12T20:08:48.871142"), 2L)
         );
@@ -51,9 +51,9 @@ public class testService {
     @Test
     public void testCreateNews_Success() {
         NewsDTO newNews = new NewsDTO(null, "New Title", "New Content", LocalDateTime.now(), LocalDateTime.now(), 1L);
-        News createdNews = new News(1L, "New Title", "New Content", LocalDateTime.now(), LocalDateTime.now(), 1L);
+        NewsModel createdNews = new NewsModel(1L, "New Title", "New Content", LocalDateTime.now(), LocalDateTime.now(), 1L);
 
-        when(mockDataSource.createNews(any(News.class))).thenReturn(createdNews);
+        when(mockDataSource.createNews(any(NewsModel.class))).thenReturn(createdNews);
 
         NewsDTO createdNewsDTO = newsService.createNews(newNews);
 
@@ -73,11 +73,11 @@ public class testService {
     public void testUpdateNews_Success() {
         Long existingId = 1L;
         NewsDTO updatedNews = new NewsDTO(null, "Updated Title", "Updated Content", LocalDateTime.now(), LocalDateTime.now(), 1L);
-        News existingNews = new News(existingId, "Old Title", "Old Content", LocalDateTime.now(), LocalDateTime.now(), 1L);
-        News updatedNewsEntity = new News(existingId, "Updated Title", "Updated Content", LocalDateTime.now(), LocalDateTime.now(), 1L);
+        NewsModel existingNews = new NewsModel(existingId, "Old Title", "Old Content", LocalDateTime.now(), LocalDateTime.now(), 1L);
+        NewsModel updatedNewsEntity = new NewsModel(existingId, "Updated Title", "Updated Content", LocalDateTime.now(), LocalDateTime.now(), 1L);
 
         when(mockDataSource.readById(existingId)).thenReturn(existingNews);
-        when(mockDataSource.updateNews(any(News.class))).thenReturn(updatedNewsEntity);
+        when(mockDataSource.updateNews(any(NewsModel.class))).thenReturn(updatedNewsEntity);
 
         NewsDTO result = newsService.updateNews(existingId, updatedNews);
 
