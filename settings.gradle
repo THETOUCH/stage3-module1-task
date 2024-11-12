@@ -3,4 +3,8 @@ include 'module-main'
 include 'module-web'
 include 'module-service'
 include 'module-repository'
+findProject(':module-repository:module-web')?.name = 'module-web'
+findProject(':module-repository:module-service')?.name = 'module-service'
+include 'module-repository:module-service'
+include 'module-repository:module-web'
 
