@@ -1,7 +1,6 @@
 package com.mjc.school.service;
 
-import com.mjc.school.repository.entity.Author;
-import com.mjc.school.repository.entity.News;
+import com.mjc.school.service.dto.NewsDTO;
 
 import java.util.List;
 

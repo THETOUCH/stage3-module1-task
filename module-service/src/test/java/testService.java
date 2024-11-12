@@ -1,10 +1,7 @@
 import com.mjc.school.repository.DataSource;
-import com.mjc.school.repository.entity.News;
-import com.mjc.school.service.NewsDTO;
-import com.mjc.school.service.NewsService;
-import com.mjc.school.service.NewsServiceImpl;
-import com.mjc.school.service.exceptions.NewsNotFoundException;
-import com.mjc.school.service.exceptions.TitleLException;
+import com.mjc.school.repository.model.News;
+import com.mjc.school.service.dto.NewsDTO;
+import com.mjc.school.service.impl.NewsServiceImpl;
 import com.mjc.school.service.validators.Validator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,7 +11,6 @@ import org.mockito.MockitoAnnotations;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;

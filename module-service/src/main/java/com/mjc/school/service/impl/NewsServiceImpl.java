@@ -1,11 +1,12 @@
-package com.mjc.school.service;
+package com.mjc.school.service.impl;
 
 import com.mjc.school.repository.DataSource;
-import com.mjc.school.repository.DataSourceImpl;
-import com.mjc.school.repository.entity.News;
+import com.mjc.school.repository.model.News;
+import com.mjc.school.service.NewsMapper;
+import com.mjc.school.service.NewsService;
+import com.mjc.school.service.dto.NewsDTO;
 import com.mjc.school.service.exceptions.ContentLException;
 import com.mjc.school.service.exceptions.DataFormatException;
-import com.mjc.school.service.exceptions.NewsNotFoundException;
 import com.mjc.school.service.exceptions.TitleLException;
 import com.mjc.school.service.validators.Validator;
 

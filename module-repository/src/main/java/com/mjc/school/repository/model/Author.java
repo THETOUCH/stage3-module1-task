@@ -1,4 +1,4 @@
-package com.mjc.school.repository.entity;
+package com.mjc.school.repository.model;
 
 import java.util.Objects;
 

@@ -1,12 +1,12 @@
 package com.mjc.school;
 
 import com.mjc.school.controller.Controller;
-import com.mjc.school.repository.DataSourceImpl;
+import com.mjc.school.repository.impl.DataSourceImpl;
 import com.mjc.school.repository.datasource.AuthorDataSource;
 import com.mjc.school.repository.datasource.NewsDataSource;
-import com.mjc.school.service.NewsDTO;
+import com.mjc.school.service.dto.NewsDTO;
 import com.mjc.school.service.NewsService;
-import com.mjc.school.service.NewsServiceImpl;
+import com.mjc.school.service.impl.NewsServiceImpl;
 import com.mjc.school.service.validators.Validator;
 
 import java.util.Scanner;

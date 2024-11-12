@@ -1,6 +1,8 @@
 package com.mjc.school.service;
 
-import com.mjc.school.repository.entity.News;
+import com.mjc.school.repository.model.News;
+import com.mjc.school.service.dto.NewsDTO;
+
 import java.time.LocalDateTime;
 import javax.annotation.processing.Generated;
 

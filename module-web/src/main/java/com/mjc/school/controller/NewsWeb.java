@@ -1,6 +1,6 @@
 package com.mjc.school.controller;
 
-import com.mjc.school.service.NewsDTO;
+import com.mjc.school.service.dto.NewsDTO;
 
 import java.util.List;
 

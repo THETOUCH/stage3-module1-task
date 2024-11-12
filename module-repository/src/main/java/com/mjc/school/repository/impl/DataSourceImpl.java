@@ -1,9 +1,10 @@
-package com.mjc.school.repository;
+package com.mjc.school.repository.impl;
 
+import com.mjc.school.repository.DataSource;
 import com.mjc.school.repository.datasource.AuthorDataSource;
 import com.mjc.school.repository.datasource.NewsDataSource;
-import com.mjc.school.repository.entity.Author;
-import com.mjc.school.repository.entity.News;
+import com.mjc.school.repository.model.Author;
+import com.mjc.school.repository.model.News;
 
 import java.util.List;
 import java.util.Optional;
